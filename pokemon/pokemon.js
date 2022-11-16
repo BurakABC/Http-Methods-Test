@@ -12,7 +12,11 @@
 $(document).ready(function() {
 
     $.get("https://uyghur.ai/course/data/pokemon.json", function(data, status) {
-        displayPokemonCards(data);
+        if (status == "success") {
+            displayPokemonCards(data)
+        } else {
+            alert('Failed to load the pokemon.json, please contact administrator.');
+        }
     });
 
     function displayPokemonCards(pokemonData) {
